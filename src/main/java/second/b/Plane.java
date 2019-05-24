@@ -16,10 +16,13 @@ public class Plane implements IPlane{
     public static final int accFactorHigh = 10;
 
     public static final int maxSpeed = 500;
+    public static final int maxAltitude = 1000;
+    public static final int minAltitude = 200;
 
 
     private int speed;
     private int gas;
+    private int altitude;
     private Location location;
 
     public Plane() {
@@ -34,15 +37,30 @@ public class Plane implements IPlane{
     @Override
     public void fly() {
         System.out.println("Plane is flying");
+        altitude = minAltitude;
     }
 
     @Override
     public void land() {
         System.out.println("Plane is landing");
+        altitude=0;
     }
 
     @Override
-    public double getAltitude() {
+    public void flyHigher() {
+
+        altitude+=10;
+        if(altitude>maxAltitude) altitude = maxAltitude;
+    }
+
+    @Override
+    public void flyLower() {
+        altitude+=10;
+        if(altitude<minAltitude) altitude = minAltitude;
+    }
+
+    @Override
+    public double calcAltitudeFromGps() {
 
         //assume altitude can be calculated from gps and this is a demo calculation
         return location.getLat() + location.getLon();
@@ -54,18 +72,21 @@ public class Plane implements IPlane{
     public void start() {
         System.out.println("Plane start");
         speed=0;
+        altitude=0;
     }
 
     @Override
     public void stop() {
         System.out.println("Plane stop");
         speed=0;
+        altitude=0;
     }
 
     @Override
     public void move() {
 
         speed=1;
+        altitude=0;
     }
 
     @Override
@@ -94,11 +115,13 @@ public class Plane implements IPlane{
         return this.toString();
     }
 
+
     @Override
     public String toString() {
         return "Plane{" +
                 "speed=" + speed +
                 ", gas=" + gas +
+                ", altitude=" + altitude +
                 ", location=" + location +
                 '}';
     }
@@ -125,5 +148,13 @@ public class Plane implements IPlane{
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public int getAltitude() {
+        return altitude;
+    }
+
+    public void setAltitude(int altitude) {
+        this.altitude = altitude;
     }
 }

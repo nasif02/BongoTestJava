@@ -39,10 +39,14 @@ public class Main {
         plane.accelerate(Plane.accFactorHigh);
         plane.accelerate(Plane.accFactorHigh);
         System.out.println(plane.getDetails());
+        plane.flyHigher();
+        plane.flyHigher();
+        plane.flyLower();
+        System.out.println(plane.getDetails());
         plane.setGas(5000);
         plane.land();
         plane.stop();
-        System.out.println(car.getDetails());
+        System.out.println(plane.getDetails());
 
 
     }

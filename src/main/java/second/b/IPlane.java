@@ -13,6 +13,8 @@ public interface IPlane extends IVehicle {
 
     void fly();
     void land();
-    double getAltitude();
+    void flyHigher();
+    void flyLower();
+    double calcAltitudeFromGps();
 
 }
