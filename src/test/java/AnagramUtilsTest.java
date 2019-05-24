@@ -1,9 +1,7 @@
 import first.AnagramUtils;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Copyright 2019 (C) Xplo
@@ -41,5 +39,8 @@ public class AnagramUtilsTest {
         assertEquals("ehllo",AnagramUtils.sortString("hello"));
         assertEquals("abc",AnagramUtils.sortString("cba"));
         assertEquals("",AnagramUtils.sortString(""));
+
+        assertNotEquals("ehllo0",AnagramUtils.sortString("hello"));
+        assertNotEquals("ehllo0",AnagramUtils.sortString("hello8"));
     }
 }
