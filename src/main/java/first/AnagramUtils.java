@@ -52,7 +52,7 @@ public class AnagramUtils {
      * @param s input string
      * @return sorted {@code String}
      */
-    private static String sortString(String s) {
+    public static String sortString(String s) {
         char arr[] = s.toCharArray();
         Arrays.sort(arr);
         return new String(arr);
