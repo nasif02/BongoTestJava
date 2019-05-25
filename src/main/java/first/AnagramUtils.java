@@ -14,18 +14,18 @@ import java.util.Arrays;
 public class AnagramUtils {
 
     /**
-     * Method to check whether two strings are first
+     * Method to check whether two strings are anagram
      *
      * @param s1 first string
      * @param s2 second string
-     * @return {@code true} if the given strings are first, {@code false} otherwise
+     * @return {@code true} if the given strings are anagram, {@code false} otherwise
      */
     public static boolean isAnagram(String s1, String s2) {
 
         int n1 = s1.length();
         int n2 = s2.length();
 
-        // length should be same to be first
+        // length should be same to be anagram
         if (n1 != n2)
             return false;
 
